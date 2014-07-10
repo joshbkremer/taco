@@ -1,0 +1,25 @@
+{
+  "name": "taco",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "connect": "~3.0.1",
+    "serve-static": "~1.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jbkreme/taco.git"
+  },
+  "author": "grammin",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/jbkreme/taco/issues"
+  },
+  "homepage": "https://github.com/jbkreme/taco"
+}
