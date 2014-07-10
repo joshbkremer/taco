@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title> Taco Counter </title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body style="background-color: #3A167E">
+    <script type="text/javascript">
+      var clicks = 0;
+      function onClick(){
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+      }
+
+      $(function(){
+        var $rota = $('.tacoImage');
+        var rotating = [];
+        $rota.click(function(){
+          var $this = $(this);
+
+          rotating.push(setInterval(function(){
+            var degree = $this.data('degree') || 0;
+            if(degree === 361){
+              clearInterval(rotating.pop());
+              $this.data('rotating', false);
+              $this.data('degree', 0);
+              return;
+            }
+            $this.css({ transform: 'rotate(' + degree + 'deg'});
+            $this.data('degree', ++degree)
+            }, 5));
+        });
+      });
+    </script>
+    <div style="width:100%; text-align: center; margin-top: 100px;">
+      <button type="button" onClick="onClick()" style="background: transparent; border: none !important; font-size: 0; border: none; outline: none;"> 
+        <img class="tacoImage" src="taco.png">
+      </button>
+      <div style="margin-top: 50px">
+        <p style="font-family: 'tacoFont'; color: #FF007E; font-size: 24px;"> Total number of tacos:  
+          <a id="clicks" style="font-family: 'tacoFont'; color: #FFFF01; font-size: 24px;">0</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
